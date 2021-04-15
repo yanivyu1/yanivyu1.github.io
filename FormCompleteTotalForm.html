@@ -34,16 +34,23 @@
       }
   </style>
   <script type="text/javascript">
-  function submitForm() {
-      console.log('submitted a form...');
-      document.querySelectorAll('.formInput').forEach((item, i) => {
-          item.clearValue();
-      });
-      alert('Thank you for submitting a form...');
-  }
+    function submitForm() {
+        console.log('submitted a form...');
+        document.querySelectorAll('.formInput').forEach((item, i) => {
+            item.clearValue();
+        });
+        alert('Thank you for submitting a form...');
+    }
+    function checkIframe() {
+        console.log('Checking if window in iframe');
+        if(window.frameElement != null) {
+            document.getElementById('companyStateDiv').style.display = "block";
+            document.getElementById('stateDiv').style.display = "block";
+        }
+    }
   </script>
 </head>
-<body>
+<body onload="checkIframe()">
     <form id="AutomationForm">
       <div class="contactInfo">
         <div>
@@ -86,14 +93,6 @@
                       document.getElementById('stateDiv').style.display = "none";
                       document.getElementById('stateDiv').value = "";
                   }
-              }
-              function checkIframe() {
-                if(window.frameElement != null) {
-                    document.getElementById('companyStateDiv').style.display = "block";
-                } else {
-                    document.getElementById('companyStateDiv').style.display = "none";
-                    document.getElementById('companyStateDiv').value = "";
-                }
               }
           </script>
           <label for="country">
@@ -520,18 +519,10 @@
                         document.getElementById('companyStateDiv').value = "";
                     }
                 }
-                function checkIframe() {
-                  if(window.frameElement != null) {
-                      document.getElementById('companyStateDiv').style.display = "block";
-                  } else {
-                      document.getElementById('companyStateDiv').style.display = "none";
-                      document.getElementById('companyStateDiv').value = "";
-                  }
-                }
             </script>
             <label for="companycountry">
               <span class="inputLabel">Company's Country</span>
-              <select id="companycountry" name="companycountry" class="form-control form-input" onchange="enableCompanyState()" onload="checkIframe()">
+              <select id="companycountry" name="companycountry" class="form-control form-input" onchange="enableCompanyState()">
                    <option value>Select a country</option>
                    <option value="Afghanistan">Afghanistan</option>
                    <option value="Åland Islands">Åland Islands</option>
