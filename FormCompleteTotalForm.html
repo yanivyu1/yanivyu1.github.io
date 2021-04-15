@@ -512,10 +512,18 @@
                         document.getElementById('companyStateDiv').value = "";
                     }
                 }
+                function checkIframe() {
+                  if(window.frameElement != undefined) {
+                      document.getElementById('companyStateDiv').style.display = "block";
+                  } else {
+                      document.getElementById('companyStateDiv').style.display = "none";
+                      document.getElementById('companyStateDiv').value = "";
+                  }
+                }
             </script>
             <label for="companycountry">
               <span class="inputLabel">Company's Country</span>
-              <select id="companycountry" name="companycountry" class="form-control form-input" onchange="enableCompanyState()">
+              <select id="companycountry" name="companycountry" class="form-control form-input" onchange="enableCompanyState()" onload="checkIframe()">
                    <option value>Select a country</option>
                    <option value="Afghanistan">Afghanistan</option>
                    <option value="Åland Islands">Åland Islands</option>
