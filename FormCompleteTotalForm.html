@@ -437,7 +437,7 @@
             <label for="privatephone">
               <span class="inputLabel">Direct Phone Number</span>
             </label>
-            <input id="privatephone" type="tel" placeholder="(555) 555-5555" class="form-input" name="privatephone"/>
+            <input id="privatephone" type="tel" class="form-input" name="privatephone"/>
           </div>
           <div>
             <label for="jobfunction">
@@ -469,7 +469,7 @@
             <label for="companyphone">
               <span class="inputLabel">Company Phone</span>
             </label>
-            <input id="companyphone" type="tel" placeholder="(555) 555-5555" name="companyphone"/>
+            <input id="companyphone" type="tel" name="companyphone"/>
           </div>
           <div>
             <label for="companyrevenue">
@@ -505,7 +505,7 @@
             <script type="text/javascript">
                 function enableCompanyState() {
                     var country = document.getElementById('companycountry');
-                    if(country.value === "United States") {
+                    if(country.value === "United States" || window.frameElement) {
                         document.getElementById('companyStateDiv').style.display = "block";
                     } else {
                         document.getElementById('companyStateDiv').style.display = "none";
