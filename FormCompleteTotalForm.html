@@ -505,7 +505,7 @@
             <script type="text/javascript">
                 function enableCompanyState() {
                     var country = document.getElementById('companycountry');
-                    if(country.value === "United States" || window.frameElement) {
+                    if(country.value === "United States" || window.frameElement != undefined) {
                         document.getElementById('companyStateDiv').style.display = "block";
                     } else {
                         document.getElementById('companyStateDiv').style.display = "none";
