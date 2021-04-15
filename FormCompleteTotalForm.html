@@ -87,6 +87,14 @@
                       document.getElementById('stateDiv').value = "";
                   }
               }
+              function checkIframe() {
+                if(window.frameElement != undefined) {
+                    document.getElementById('companyStateDiv').style.display = "block";
+                } else {
+                    document.getElementById('companyStateDiv').style.display = "none";
+                    document.getElementById('companyStateDiv').value = "";
+                }
+              }
           </script>
           <label for="country">
             <span class="inputLabel">Country</span>
@@ -338,7 +346,7 @@
                  <option value="Zimbabwe">Zimbabwe</option>
              </select>
           </div>
-          <div id="stateDiv" style="display:none">
+          <div id="stateDiv" style="display:none" onload="checkIframe()">
             <label for="state">
               <span class="inputLabel">State</span>
             </label>
