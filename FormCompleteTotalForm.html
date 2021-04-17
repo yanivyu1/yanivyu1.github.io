@@ -38,9 +38,9 @@
         event.preventDefault();
         console.log('submitted a form...');
     }
-    const form = document.querySelector('#AutomationForm');
-    form.addEventListener('submit',submitForm);
     function checkIframe() {
+        var form = document.getElementById('AutomationForm');
+        form.addEventListener('submit',submitForm(event));
         console.log('Checking if window in iframe');
         if(window.frameElement != null) {
             document.getElementById('companyStateDiv').style.display = "block";
