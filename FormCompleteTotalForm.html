@@ -20,17 +20,35 @@
       }
       .contactInfo {
           padding-right: 10px;
-          width: 25%;
-          height: 800px;
+          padding-left: 15px;
+          width: 480px;
+          height: 450px;
           float: left;
-          align-items: center;
+          align-content: center;
+          background-color: #FF0000;
+          margin-right: 15px;
       }
       .companyInfo{
-        margin-left: 15%;
-        height: 800px;
+        padding-right: 10px;
+        padding-left: 5px;
+        width: 480px;
+        height: 450px;
+        float: left;
+        align-items: center;
+        background-color: #FF0000;
       }
       #stateDiv {
           display: none;
+      }
+      .zi-logo {
+          width: 256px;
+          height: 60px;
+          padding-bottom: 10px;
+      }
+      .submitButton {
+          position: relative;
+          top:20px;
+          left: 180px;
       }
   </style>
   <script type="text/javascript">
@@ -50,6 +68,9 @@
   </script>
 </head>
 <body onload="checkIframe()">
+    <div class="zi-logo">
+      <img class="zi-logo" alt="ziLogo" src="images/zi-logo.png"/>
+    </div>
     <form id="AutomationForm">
       <div class="contactInfo">
         <div>
@@ -760,8 +781,11 @@
               <input id="companyZip" type="text" class="form-input" name="companyZip"/>
             </div>
         </div>
+
+
         <div class="submitButton">
           <button class="submitButton" id="submit" name="submit" type="submit" value="Submit">Submit</button>
         </div>
+    </form>
 </body>
 </html>
