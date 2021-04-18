@@ -56,8 +56,6 @@
         console.log('submitted a form...');
     }
     function checkIframe() {
-        var form = document.getElementById('AutomationForm');
-        form.addEventListener('submit',submitForm(event));
         console.log('Checking if window in iframe');
         if(window.frameElement != null) {
             document.getElementById('companyStateDiv').style.display = "block";
