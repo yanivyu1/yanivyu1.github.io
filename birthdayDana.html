@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Birthday Boooly</title>
+    <style>
+        .main {
+            width: 1920px;
+            height: 1080px;
+            background-image: url("images/whos there.jpeg"),url("images/IMG_7020.jpeg"),url("images/IMG_7121.jpeg"),url("images/ITAZ7202.jpeg");
+            background-position: left top,left bottom,right top,right bottom;
+            background-repeat: no-repeat,no-repeat,no-repeat,no-repeat;
+            background-size: 960px 540px,960px 540px,960px 540px,960px 540px;
+        }
+        .title {
+            font-family: sans-serif;
+            font-size: 50px;
+            color: #FF0000;
+        }
+        .family {
+            position: absolute;
+            top: 100px;
+            left: 300px;
+            float: left;
+            margin: 50px;
+        }
+        .friends {
+            position: absolute;
+            top:100px;
+            left: 600px;
+            margin: 50px;
+        }
+        .specialGuests {
+            position: absolute;
+            top:100px;
+            left: 900px;
+            margin: 50px;
+        }
+        .video {
+            width: 150px;
+            height: 112px;
+        }
+        .popUp {
+            position: fixed;
+            top:30%;
+            left: 25%;
+            cursor: pointer;
+            width: 600px;
+            height: 400px;
+            z-index: 2;
+        }
+    </style>
+    <script type="text/javascript">
+        function openInPopUp(ele) {
+            ele.pause();
+            var clone = document.createElement('video');
+            clone.style.width = '600px';
+            clone.style.height = '480px';
+            clone.src = ele.childNodes[1].src;
+            clone.controls = true;
+            clone.autoplay = true;
+            clone.onpause = function () {
+                document.getElementById('pop-up').removeChild(clone);
+                document.getElementById('pop-up').style.display = 'none'
+            }
+            var popUp = document.getElementById('pop-up');
+            popUp.style.display = 'inline-block';
+            popUp.appendChild(clone);
+            clone.play();
+        }
+    </script>
+</head>
+<body class="body">
+    <div class="main" id="main">
+        <div class="family">
+            <h1 class="title">Family</h1>
+            <ul>
+                <li class="videoDiv">
+                    <video class="video" controls onplay="openInPopUp(this)">
+                        <source src="images/וידאו.mov">
+                    </video>
+                </li>
+                <li class="videoDiv">
+                    <video class="video" controls onplay="openInPopUp(this)">
+                        <source src="images/QWDO5528.mp4" type="video/mp4">
+                    </video>
+                </li>
+                <li class="videoDiv">
+                    <video class="video" controls onplay="openInPopUp(this)">
+                        <source src="images/OCJU0744.mp4" type="video/mp4">
+                    </video>
+                </li>
+            </ul>
+        </div>
+        <div class="friends">
+            <h1 class="title">Friends</h1>
+            <ul>
+                <li class="videoDiv">
+                    <video class="video" controls onplay="openInPopUp(this)">
+                        <source src="images/CNGR4984.mp4">
+                    </video>
+                </li>
+                <li class="videoDiv">
+                    <video class="video" controls onplay="openInPopUp(this)">
+                        <source src="images/ASPP7523.mp4">.
+                    </video>
+                </li>
+                <li class="videoDiv">
+                    <video class="video" controls onplay="openInPopUp(this)">
+                        <source src="images/PUPC3010.mp4" type="video/mp4">
+                    </video>
+                </li>
+            </ul>
+        </div>
+        <div class="specialGuests">
+            <h1 class="title">Special Guests</h1>
+            <ul>
+                <li class="audioDiv">
+                    <audio class="video" controls onplay="openInPopUp(this)">
+                        <source src="images/לדנה.m4a">
+                    </audio>
+                </li>
+                <li class="videoDiv">
+                    <video class="video" controls onplay="openInPopUp(this)">
+                        <source src="images/mayaRotman.mp4" type="video/mp4">
+                    </video>
+                </li>
+            </ul>
+        </div>
+        <div id="pop-up" class="popUp" style="display: none">
+        </div>
+    </div>
+</body>
+</html>
