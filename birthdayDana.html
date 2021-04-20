@@ -49,6 +49,27 @@
             height: 400px;
             z-index: 2;
         }
+        .popUpButton {
+            position: relative;
+            top:95%;
+            left: 42%;
+            width: 150px;
+            height: 25px;
+        }
+        .popUpText {
+            text-align: center;
+        }
+        .popUpsubText {
+            position: relative;
+            text-align: center;
+        }
+        .gif {
+            height: 90px;
+            width: 120px;
+            position: relative;
+            top:80%;
+            left: 42%;
+        }
     </style>
     <script type="text/javascript">
         function openInPopUp(ele) {
@@ -68,9 +89,23 @@
             popUp.appendChild(clone);
             clone.play();
         }
+        function firstPopUp() {
+            var popUp = document.getElementById('pop-up');
+            popUp.style.display = 'inline-block';
+            popUp.style.width = '1000px';
+            popUp.style.height = '500px';
+            popUp.style.background = '#FFFFFF'
+            var hello = document.getElementById('helloBooly');
+            hello.style.display = 'block';
+            popUp.appendChild(hello);
+        }
+        function closePopUp(){
+            document.getElementById('pop-up').removeChild(document.getElementById('helloBooly'));
+            document.getElementById('pop-up').style.display = 'none'
+        }
     </script>
 </head>
-<body class="body">
+<body class="body" onload="firstPopUp()">
     <div class="main" id="main">
         <div class="family">
             <h1 class="title">Family</h1>
@@ -128,6 +163,26 @@
             </ul>
         </div>
         <div id="pop-up" class="popUp" style="display: none">
+        </div>
+        <div id="helloBooly" style="display: none">
+            <h1 class="popUpText">לבווולי שלי</h1>
+            <h3 class="popUpsubText">
+                השנה שעברה עלינו העמידה אותנו במבחן הזוגיות האולטימטיבי, קיבלנו זוג מתנות משמיים.
+            </h3>
+            <h3 class="popUpsubText">
+                ולמרות שלא הייתי תמיד תומך אני רוצה להגיד שאת אימא מדהימה,מכילה,רגישה וחזקה לאין שיעור
+            </h3>
+            <h3 class="popUpsubText">
+                אז בניתי ב״סתר״ את האתר הזה וקיבצתי בו סרטוני ברכה משלל אנשים בחיים שלנו
+            </h3>
+            <h3 class="popUpsubText">
+                תנגני איזה סרטון שבא לך ויש כמה הפתעות שאני מקווה שיגידו כמה אני אוהב אותך
+            </h3>
+            <h3 class="popUpsubText">
+                נ.ב. יש הפתעה בסוף
+            </h3>
+            <img src="images/heart-gif.gif" class="gif"></br>
+            <button class="popUpButton" value="קראתי אפשר להמשיך" onclick="closePopUp()">קראתי אפשר להמשיך</button>
         </div>
     </div>
 </body>
