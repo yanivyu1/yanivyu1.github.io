@@ -9,14 +9,16 @@
         }
         .main {
             width: 100%;
-            height: 1080px;
+            height: 1620px;
             background-image: url("https://birthdaydana.s3.eu-central-1.amazonaws.com/images/whos there.jpeg"),
             url("https://birthdaydana.s3.eu-central-1.amazonaws.com/images/IMG_7020.jpeg"),
             url("https://birthdaydana.s3.eu-central-1.amazonaws.com/images/IMG_7121.jpeg"),
-            url("https://birthdaydana.s3.eu-central-1.amazonaws.com/images/ITAZ7202.jpeg");
-            background-position: left top,left bottom,right top,right bottom;
-            background-repeat: no-repeat,no-repeat,no-repeat,no-repeat;
-            background-size: 50% 540px,50% 540px,50% 540px,50% 540px;
+            url("https://birthdaydana.s3.eu-central-1.amazonaws.com/images/ITAZ7202.jpeg"),
+            url("https://birthdaydana.s3.eu-central-1.amazonaws.com/images/IMG_7302.jpeg"),
+            url("https://birthdaydana.s3.eu-central-1.amazonaws.com/images/IMG_7310.jpeg");
+            background-position: left top,left center,right top,right center,left bottom,right bottom;
+            background-repeat: no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat;
+            background-size: 50% 540px,50% 540px,50% 540px,50% 540px,50% 540px,50% 540px;
             float: left;
         }
         .title {
@@ -78,7 +80,8 @@
             cursor: pointer;
             width: 1200px;
             height: 800px;
-            z-index: 2;
+            z-index: 20;
+            box-shadow:  0px 0px 0px 9999px rgba(0, 0, 0, 0.7);
         }
         .popUpButton {
             position: relative;
@@ -108,6 +111,8 @@
             var clone = document.createElement('video');
             clone.style.width = '1200px';
             clone.style.height = '800px';
+            clone.style.top = '0%';
+            clone.style.left = '0%';
             clone.src = ele.childNodes[1].src;
             clone.controls = true;
             clone.autoplay = true;
@@ -118,8 +123,11 @@
             var popUp = document.getElementById('pop-up');
             popUp.style.background = 'initial'
             popUp.style.display = 'inline-block';
+            popUp.style.width = '1200px';
+            popUp.style.height = '800px';
             popUp.style.top = '10%'
             popUp.style.left = '20%';
+            popUp.style.background = 'rgb(0, 0, 0)'
             popUp.appendChild(clone);
             clone.play();
         }
@@ -157,6 +165,11 @@
                     </li>
                     <li class="videoDiv">
                         <video class="video" controls onplay="openInPopUp(this)">
+                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/abaAima.mp4">
+                        </video>
+                    </li>
+                    <li class="videoDiv">
+                        <video class="video" controls onplay="openInPopUp(this)">
                             <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/QWDO5528.mp4" type="video/mp4">
                         </video>
                     </li>
@@ -181,6 +194,11 @@
                     </li>
                     <li class="videoDiv">
                         <video class="video" controls onplay="openInPopUp(this)">
+                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/shunit.mp4">
+                        </video>
+                    </li>
+                    <li class="videoDiv">
+                        <video class="video" controls onplay="openInPopUp(this)">
                             <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/OCJU0744.mp4" type="video/mp4">
                         </video>
                     </li>
@@ -198,12 +216,17 @@
                     </li>
                     <li class="videoDiv">
                         <video class="video" controls onplay="openInPopUp(this)">
-                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/tankus.mp4">.
+                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/tankus.mp4">
                         </video>
                     </li>
                     <li class="videoDiv">
                         <video class="video" controls onplay="openInPopUp(this)">
-                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/ASPP7523.mp4">.
+                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/ASPP7523.mp4">
+                        </video>
+                    </li>
+                    <li class="videoDiv">
+                        <video class="video" controls onplay="openInPopUp(this)">
+                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/magory.mp4">
                         </video>
                     </li>
                     <li class="videoDiv">
@@ -247,6 +270,16 @@
                     </li>
                     <li class="videoDiv">
                         <video class="video" controls onplay="openInPopUp(this)">
+                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/shid.mp4">.
+                        </video>
+                    </li>
+                    <li class="videoDiv">
+                        <video class="video" controls onplay="openInPopUp(this)">
+                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/talya.mp4">.
+                        </video>
+                    </li>
+                    <li class="videoDiv">
+                        <video class="video" controls onplay="openInPopUp(this)">
                             <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/ronlyAndAviad.mp4" type="video/mp4">
                         </video>
                     </li>
@@ -269,6 +302,11 @@
                 <ul>
                     <li class="videoDiv">
                         <video class="video" controls onplay="openInPopUp(this)" poster="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/unknown.jpg">
+                            <source src="images/gury.mp4" type="video/mp4">
+                        </video>
+                    </li>
+                    <li class="videoDiv">
+                        <video class="video" controls onplay="openInPopUp(this)" poster="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/unknown.jpg">
                             <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/nimrodHippo.mp4" type="video/mp4">
                         </video>
                     </li>
@@ -276,6 +314,11 @@
                         <audio class="video audio" controls onplay="openInPopUp(this)">
                             <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/aviadHippo.ogg">
                         </audio>
+                    </li>
+                    <li class="videoDiv">
+                        <video class="video" controls onplay="openInPopUp(this)" poster="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/unknown.jpg">
+                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/drorShememal.mp4" type="video/mp4">
+                        </video>
                     </li>
                     <li class="videoDiv">
                         <video class="video" controls onplay="openInPopUp(this)" poster="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/unknown.jpg">
@@ -299,6 +342,11 @@
                     <li class="videoDiv">
                         <video class="video" controls onplay="openInPopUp(this)" poster="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/unknown.jpg">
                             <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/daniel_gal.mp4" type="video/mp4">
+                        </video>
+                    </li>
+                    <li class="videoDiv">
+                        <video class="video" controls onplay="openInPopUp(this)" poster="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/unknown.jpg">
+                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/yheudaHadar.mp4" type="video/mp4">
                         </video>
                     </li>
                 </ul>
