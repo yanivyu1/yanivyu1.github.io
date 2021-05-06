@@ -52,13 +52,17 @@
       }
   </style>
   <script type="text/javascript">
-    function checkIframe() {
-        console.log('Checking if window in iframe');
-        if(window.frameElement != null) {
-            document.getElementById('companyStateDiv').style.display = "block";
-            document.getElementById('stateDiv').style.display = "block";
-        }
-    }
+      function submitForm(e) {
+            e.preventDefault();
+            console.log('Submitting a form...');
+      }
+      function checkIframe() {
+          console.log('Checking if window in iframe');
+          if(window.frameElement != null) {
+              document.getElementById('companyStateDiv').style.display = "block";
+              document.getElementById('stateDiv').style.display = "block";
+          }
+      }
   </script>
 </head>
 <body onload="checkIframe()">
@@ -779,7 +783,7 @@
 
 
         <div class="submitButton">
-          <button class="submitButton" id="submit" name="submit" value="Submit" >Submit</button>
+          <input class="submitButton" type="button" id="submitBtn" name="submitBtn" value="Submit" onclick="console.log('Submitting a form...');return false"/>
         </div>
     </form>
 </body>
