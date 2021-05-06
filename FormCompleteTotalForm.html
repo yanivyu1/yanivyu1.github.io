@@ -52,10 +52,6 @@
       }
   </style>
   <script type="text/javascript">
-      function submitForm(e) {
-            e.preventDefault();
-            console.log('Submitting a form...');
-      }
       function checkIframe() {
           console.log('Checking if window in iframe');
           if(window.frameElement != null) {
@@ -783,7 +779,14 @@
 
 
         <div class="submitButton">
-            <button class="submitButton" type="submit" id="submitBtn" name="submitBtn" value="Submit" onclick="console.log('Submitting a form...');return false">Submit</button>
+            <button class="submitButton" type="submit" id="submitBtn" name="submitBtn" value="Submit">Submit</button>
+            <script type="text/javascript">
+                var form = document.querySelector('#AutomationForm');
+                form.addEventListener('submit',function (evt) {
+                    evt.preventDefault();
+                    console.log('Submitting a form...');
+                })
+            </script>
         </div>
     </form>
 </body>
