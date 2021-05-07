@@ -93,6 +93,13 @@
             width: 150px;
             height: 25px;
         }
+        .popUpButton1 {
+            position: relative;
+            top:95%;
+            left: 40.5%;
+            width: 75px;
+            height: 25px;
+        }
         .popUpText {
             text-align: center;
         }
@@ -134,23 +141,72 @@
             popUp.appendChild(clone);
             clone.play();
         }
-        function firstPopUp() {
+        function firstPopUp(id) {
             var popUp = document.getElementById('pop-up');
             popUp.style.display = 'inline-block';
             popUp.style.width = '1000px';
             popUp.style.height = '500px';
             popUp.style.background = '#FFFFFF'
-            var hello = document.getElementById('helloBooly');
+            var hello = document.getElementById(id);
             hello.style.display = 'block';
             popUp.appendChild(hello);
         }
-        function closePopUp(){
-            document.getElementById('pop-up').removeChild(document.getElementById('helloBooly'));
+        function closePopUp(id){
+            document.querySelector('.main').appendChild(document.getElementById(id));
+            document.getElementById(id).style.display = 'none';
             document.getElementById('pop-up').style.display = 'none'
+            resetIdleTime();
+            idleInterval = setInterval(checkIfIdle, 1000);
+        }
+        var idleTime = 0
+        document.addEventListener('mousemove', resetIdleTime, false);
+        document.addEventListener('click', resetIdleTime, false);
+        document.addEventListener('keypress', resetIdleTime, false);
+        function resetIdleTime ()
+        {
+            idleTime = 0
+        }
+
+
+        function checkIfIdle ()
+        {
+            idleTime += 1000
+            console.log(idleTime)
+            if (idleTime >= 120000)
+            {
+                firstPopUp('byeBooly');
+            }
+        }
+
+        var idleInterval = null;
+        function playByeBooly() {
+            clearInterval(idleInterval)
+            document.querySelector('.main').appendChild(document.getElementById("byeBooly"));
+            document.getElementById("byeBooly").style.display = 'none';
+            var clone = document.createElement('video');
+            clone.style.width = '1200px';
+            clone.style.height = '800px';
+            clone.style.top = '0%';
+            clone.style.left = '0%';
+            clone.src = 'images/lastVideo.mp4'
+            clone.controls = true;
+            clone.onpause = function () {
+                document.getElementById('pop-up').removeChild(clone);
+                document.getElementById('pop-up').style.display = 'none'
+            }
+            var popUp = document.getElementById('pop-up');
+            popUp.style.background = 'initial'
+            popUp.style.display = 'inline-block';
+            popUp.style.width = '1200px';
+            popUp.style.height = '800px';
+            popUp.style.top = '10%'
+            popUp.style.left = '20%';
+            popUp.style.background = 'rgb(0, 0, 0)'
+            popUp.appendChild(clone);
         }
     </script>
 </head>
-<body class="body" onload="firstPopUp()">
+<body class="body" onload="firstPopUp('helloBooly')">
     <div class="main" id="main">
         <div class="family">
             <h1 class="title">Family</h1>
@@ -168,12 +224,22 @@
                     </li>
                     <li class="videoDiv">
                         <video class="video" controls onplay="openInPopUp(this)">
+                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/adiAerlea.mp4">
+                        </video>
+                    </li>
+                    <li class="videoDiv">
+                        <video class="video" controls onplay="openInPopUp(this)">
+                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/shiran.mp4">
+                        </video>
+                    </li>
+                    <li class="videoDiv">
+                        <video class="video" controls onplay="openInPopUp(this)">
                             <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/abaAima.mp4">
                         </video>
                     </li>
                     <li class="videoDiv">
                         <video class="video" controls onplay="openInPopUp(this)">
-                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/QWDO5528.mp4" type="video/mp4">
+                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/shunit.mp4">
                         </video>
                     </li>
                     <li class="videoDiv">
@@ -192,7 +258,12 @@
                     </li>
                     <li class="videoDiv">
                         <video class="video" controls onplay="openInPopUp(this)">
-                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/adiAerlea.mp4">
+                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/liorGalit.mp4">
+                        </video>
+                    </li>
+                    <li class="videoDiv">
+                        <video class="video" controls onplay="openInPopUp(this)">
+                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/galInbal.mp4">
                         </video>
                     </li>
                     <li class="videoDiv">
@@ -202,12 +273,17 @@
                     </li>
                     <li class="videoDiv">
                         <video class="video" controls onplay="openInPopUp(this)">
-                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/shunit.mp4">
+                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/placeholder.mp4">
                         </video>
                     </li>
                     <li class="videoDiv">
                         <video class="video" controls onplay="openInPopUp(this)">
                             <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/OCJU0744.mp4" type="video/mp4">
+                        </video>
+                    </li>
+                    <li class="videoDiv">
+                        <video class="video" controls onplay="openInPopUp(this)">
+                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/QWDO5528.mp4" type="video/mp4">
                         </video>
                     </li>
                 </ul>
@@ -234,17 +310,17 @@
                     </li>
                     <li class="videoDiv">
                         <video class="video" controls onplay="openInPopUp(this)">
+                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/shirLeyvand.mp4" type="video/mp4">
+                        </video>
+                    </li>
+                    <li class="videoDiv">
+                        <video class="video" controls onplay="openInPopUp(this)">
                             <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/PUPC3010.mp4" type="video/mp4">
                         </video>
                     </li>
                     <li class="videoDiv">
                         <video class="video" controls onplay="openInPopUp(this)">
                             <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/saba.mp4" type="video/mp4">
-                        </video>
-                    </li>
-                    <li class="videoDiv">
-                        <video class="video" controls onplay="openInPopUp(this)">
-                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/EQIL0180.mp4" type="video/mp4">
                         </video>
                     </li>
                     <li class="videoDiv">
@@ -296,6 +372,16 @@
                             <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/ayalaNaama.mp4" type="video/mp4">
                         </video>
                     </li>
+                    <li class="videoDiv">
+                        <video class="video" controls onplay="openInPopUp(this)">
+                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/EQIL0180.mp4" type="video/mp4">
+                        </video>
+                    </li>
+                    <li class="videoDiv">
+                        <video class="video" controls onplay="openInPopUp(this)">
+                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/allaKopitman.mp4" type="video/mp4">
+                        </video>
+                    </li>
                 </ul>
             </div>
             <div class="friends3">
@@ -312,12 +398,22 @@
                     </li>
                     <li class="videoDiv">
                         <video class="video" controls onplay="openInPopUp(this)">
-                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/yoniShiran.mp4" type="video/mp4">
+                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/ayabachar.mp4" type="video/mp4">
+                        </video>
+                    </li>
+                    <li class="videoDiv">
+                        <video class="video" controls onplay="openInPopUp(this)">
+                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/rotemRaviv.mp4" type="video/mp4">
                         </video>
                     </li>
                     <li class="videoDiv">
                         <video class="video" controls onplay="openInPopUp(this)">
                             <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/yoniShiran.mp4" type="video/mp4">
+                        </video>
+                    </li>
+                    <li class="videoDiv">
+                        <video class="video" controls onplay="openInPopUp(this)">
+                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/aviem.mp4" type="video/mp4">
                         </video>
                     </li>
                     <li class="videoDiv">
@@ -339,7 +435,7 @@
                 <ul>
                     <li class="videoDiv">
                         <video class="video" controls onplay="openInPopUp(this)" poster="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/unknown.jpg">
-                            <source src="images/gury.mp4" type="video/mp4">
+                            <source src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/gury.mp4" type="video/mp4">
                         </video>
                     </li>
                     <li class="videoDiv">
@@ -409,7 +505,22 @@
                 נ.ב. יש הפתעה בסוף
             </h3>
             <img src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/heart-gif.gif" class="gif"></br>
-            <button class="popUpButton" value="קראתי אפשר להמשיך" onclick="closePopUp()">קראתי אפשר להמשיך</button>
+            <button class="popUpButton" value="קראתי אפשר להמשיך" onclick="closePopUp('helloBooly')">קראתי אפשר להמשיך</button>
+        </div>
+        <div id="byeBooly" style="display: none">
+            <h1 class="popUpText">זהו? כבר נגמר?</h1>
+            <h3 class="popUpsubText">
+                אם ראית את כל הסרטונים או שפשוט את מחבקת אותי אז יש עוד הפתעה בסוף
+            </h3>
+            <h3 class="popUpsubText">
+                להפתעה לחצי 1
+            </h3>
+            <h3 class="popUpsubText">
+                להמשיך לראות עוד סרטונים או סתם להמדיך לחבק אותי לחצי 2
+            </h3>
+            <img src="https://birthdaydana.s3.eu-central-1.amazonaws.com/images/heart-gif.gif" class="gif"></br>
+            <button class="popUpButton1" value="1" onclick="playByeBooly()">1</button>
+            <button class="popUpButton1" value="2" onclick="closePopUp('byeBooly')">2</button>
         </div>
     </div>
 </body>
