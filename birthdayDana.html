@@ -190,6 +190,7 @@
             clone.style.left = '0%';
             clone.src = 'images/lastVideo.mp4'
             clone.controls = true;
+            clone.autoplay = true;
             clone.onpause = function () {
                 document.getElementById('pop-up').removeChild(clone);
                 document.getElementById('pop-up').style.display = 'none'
