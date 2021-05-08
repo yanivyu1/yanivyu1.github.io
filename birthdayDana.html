@@ -117,6 +117,7 @@
     </style>
     <script type="text/javascript">
         function openInPopUp(ele) {
+            clearInterval(idleInterval);
             ele.pause();
             var clone = document.createElement('video');
             clone.style.width = '1200px';
@@ -129,6 +130,7 @@
             clone.onpause = function () {
                 document.getElementById('pop-up').removeChild(clone);
                 document.getElementById('pop-up').style.display = 'none'
+                idleInterval = setInterval(checkIfIdle, 1000);
             }
             var popUp = document.getElementById('pop-up');
             popUp.style.background = 'initial'
@@ -180,7 +182,7 @@
 
         var idleInterval = null;
         function playByeBooly() {
-            clearInterval(idleInterval)
+            clearInterval(idleInterval);
             document.querySelector('.main').appendChild(document.getElementById("byeBooly"));
             document.getElementById("byeBooly").style.display = 'none';
             var clone = document.createElement('video');
@@ -194,6 +196,7 @@
             clone.onpause = function () {
                 document.getElementById('pop-up').removeChild(clone);
                 document.getElementById('pop-up').style.display = 'none'
+                idleInterval = setInterval(checkIfIdle, 1000);
             }
             var popUp = document.getElementById('pop-up');
             popUp.style.background = 'initial'
