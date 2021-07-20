@@ -51,15 +51,6 @@
       left: 180px;
     }
   </style>
-  <script type="text/javascript">
-    function checkIframe() {
-      console.log('Checking if window in iframe');
-      if(window.frameElement != null) {
-        document.getElementById('companyStateDiv').style.display = "block";
-        document.getElementById('stateDiv').style.display = "block";
-      }
-    }
-  </script>
 </head>
 <body onload="checkIframe()">
 <div class="zi-logo">
@@ -100,7 +91,7 @@
     <div>
       <label for="country">
         <span class="inputLabel">Country</span>
-        <select id="country" name="country" class="form-control form-input" onchange="enableState()">
+        <select id="country" name="country" class="form-control form-input">
           <option value>Select a country</option>
           <option value="Afghanistan">Afghanistan</option>
           <option value="Åland Islands">Åland Islands</option>
